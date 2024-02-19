@@ -1,0 +1,20 @@
+<div>
+    <div>
+        <label for="new-hero-address">Hero address: </label>
+        <input id="new-hero-address" #heroAddress />
+    </div>
+    <div>
+        <label for="hero-id">Hero id: </label>
+        <input id="hero-id" #heroId [(ngModel)]="selectedHero!.id"/>
+    </div>
+    <div>
+        <label for="selectHero">Hero :</label>
+        <select id="selectHero" [(ngModel)]="selectedHero">
+            <option *ngFor="let shero of heroes" [ngValue]="shero">{{shero.name}}</option>
+        </select>
+    </div>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(heroId.value,heroAddress.value); heroAddress.value=''">
+        Add hero address
+    </button>
+</div>
